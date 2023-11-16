@@ -18,18 +18,17 @@ fn main() {
       true
     );
 
-    // Line: 1, Column: 1, Offset: 0
     assert_eq!(span.line(), 1);
     assert_eq!(span.col(), 1);
     assert_eq!(span.byte_offset(), 0);
 }
 ```
 
-You can notice that supporting UTF-8 is optionnal. The reason is that UTF-8 strings need to be handled in a different way than pure ASCII strings, and thus, there can be a performance gap with UTF-8 support (see the benchmark below)
+You can notice that supporting UTF-8 is optional. The reason is that UTF-8 strings need to be handled in a different way than pure ASCII strings, and thus, there can be a performance gap with UTF-8 support (see the benchmark below)
 
 ### UTF-8 and ASCII comparison
 
-A UTF-8 char can be from 1 to 4 bytes, so counting it the ascii way would result in counting each byte of the UTF-8 char, and will result in unexpected column number:
+A UTF-8 char can be made of 1 to 4 bytes, so counting it the ASCII way would result in counting each byte of the UTF-8 char, and will result in unexpected column number:
 
 ```rust
 use nom_span::Spanned;

@@ -50,3 +50,14 @@ fn utf8_vs_ascii() {
 }
 
 ```
+
+## What about [nom_locate](https://github.com/fflorent/nom_locate)?
+
+I was initially using [nom_locate](https://github.com/fflorent/nom_locate), but I faced some huge performance issue while building a [json parser](https://github.com/julesguesnon/spanned-json-parser), so I decided to implement my own input. I basically cloned [nom_locate](https://github.com/fflorent/nom_locate) and modified the counting function that was causing the performance issue. So thanks a lot for this awesome crate and please go add a star to it!
+
+### What's the difference with [nom_locate](https://github.com/fflorent/nom_locate)?
+
+[nom_locate](https://github.com/fflorent/nom_locate) is recounting all the chars of your entire input (even if you already consumed it) when you're calling `get_column`. If you're calling `get_column` every char, runtime would be: `O(N^2)`
+With this crate, it's counting lines and columns everytime you're consuming your input. If you're calling `col` every char, runtime would be: `O(2N)`
+
+So if you're planning to get the column only a few times, for example, only when an error occur, it may be better to use [nom_locate](https://github.com/fflorent/nom_locate), but if you need it quite often, this crate should be better.

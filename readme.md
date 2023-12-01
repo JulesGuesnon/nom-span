@@ -1,4 +1,9 @@
-# Nom span
+# Nom Span &emsp; [![Build Status]][actions] [![Latest Version]][crates.io]
+
+[Build Status]: https://img.shields.io/github/actions/workflow/status/julesguesnon/nom-span/rust.yml?branch=main
+[actions]: https://github.com/julesguesnon/nom-span/actions?query=branch%3Amain
+[crates.io]: https://crates.io/crates/nom-span
+[Latest Version]: https://img.shields.io/crates/v/nom-span.svg
 
 This library expose `Spanned`, a struct that will wraps your input and allow you to keep track of the line number, the column number and the byte offset
 

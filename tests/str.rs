@@ -1,6 +1,9 @@
 use nom::{character::complete::anychar, multi::many1, IResult};
 use nom_span::Spanned;
 
+extern crate nom;
+extern crate nom_span;
+
 type Span<'a> = Spanned<&'a str>;
 
 #[test]

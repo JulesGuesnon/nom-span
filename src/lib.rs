@@ -145,7 +145,7 @@ where
     }
 }
 
-impl<T, Comp> Compare<C> for Spanned<T>
+impl<T, Comp> Compare<Comp> for Spanned<T>
 where
     T: Compare<Comp>,
 {

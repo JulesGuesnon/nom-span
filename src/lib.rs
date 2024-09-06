@@ -145,15 +145,15 @@ where
     }
 }
 
-impl<T> Compare<T> for Spanned<T>
+impl<T, Comp> Compare<C> for Spanned<T>
 where
-    T: Compare<T>,
+    T: Compare<Comp>,
 {
-    fn compare(&self, t: T) -> nom::CompareResult {
+    fn compare(&self, t: Comp) -> nom::CompareResult {
         self.data.compare(t)
     }
 
-    fn compare_no_case(&self, t: T) -> nom::CompareResult {
+    fn compare_no_case(&self, t: Comp) -> nom::CompareResult {
         self.data.compare_no_case(t)
     }
 }

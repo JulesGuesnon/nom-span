@@ -98,6 +98,26 @@ impl<T> Spanned<T> {
         }
     }
 
+    pub fn new_for_ut8(data: T) -> Self {
+        Self {
+            data,
+            line: 1,
+            col: 1,
+            offset: 0,
+            handle_utf8: true,
+        }
+    }
+
+    pub fn new_for_ascii(data: T) -> Self {
+        Self {
+            data,
+            line: 1,
+            col: 1,
+            offset: 0,
+            handle_utf8: false,
+        }
+    }
+
     /// Get the current line number
     pub fn line(&self) -> usize {
         self.line
